@@ -1,3 +1,4 @@
+import cors from '@elysiajs/cors';
 import { Elysia } from 'elysia';
 
 export class Server {
@@ -9,11 +10,11 @@ export class Server {
 		this.initCORS();
 		this.initErrorListener();
 		this.initEndpoints();
-
-		this.elysia.listen(Server.port, ({ port }) => console.info(`Listening on: http://localhost:${port}`));
 	}
 
-	private initCORS(): void {}
+	private initCORS(): void {
+		this.elysia.use(cors());
+	}
 
 	private initErrorListener(): void {
 		this.elysia.onError(({ code, error }) => {
@@ -39,4 +40,8 @@ export class Server {
 	}
 
 	private initEndpoints(): void {}
+
+	public listen() {
+		this.elysia.listen(Server.port, ({ port }) => console.info(`Listening on: http://localhost:${port}`));
+	}
 }

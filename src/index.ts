@@ -1,3 +1,5 @@
 import { Server } from './classes/Server.ts';
 
-new Server();
+const sv = new Server();
+
+sv.listen();

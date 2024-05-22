@@ -1,30 +1,30 @@
 {
-	"name": "@tnfangel-chat/api",
-	"version": "1.0.0",
-	"description": "tnfAngel Chat API Service",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"build": "bun run build:bundle",
-		"build:bundle": "bun build --target bun --format esm --minify --outdir ./dist/ ./src/index.ts",
-		"build:standalone": "bun build --compile --target bun --format esm --minify --outfile ./dist/aurora ./src/index.ts",
-		"start": "bun run build && bun ./dist/index.js",
-		"dev": "NODE_ENV=development bun --hot src/index.ts",
-		"production:build": "bun run build:standalone",
-		"lint": "bunx --bun @biomejs/biome check --apply ."
-	},
-	"author": "tnfAngel",
-	"dependencies": {
-		"@elysiajs/cors": "^1.0.2",
-		"elysia": "^1.0.21",
-		"tslib": "^2.6.2"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.7.3",
-		"@types/bun": "^1.1.3",
-		"typescript": "5.4.5"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	}
+  "name": "@tnfangel-chat/api",
+  "version": "1.0.0",
+  "description": "tnfAngel Chat API Service",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun run build:bundle",
+    "build:bundle": "bun build --target bun --format esm --minify --outdir ./dist/ ./src/index.ts",
+    "build:standalone": "bun build --compile --target bun --format esm --minify --outfile ./dist/aurora ./src/index.ts",
+    "start": "bun run build && bun ./dist/index.js",
+    "dev": "NODE_ENV=development bun --hot src/index.ts",
+    "production:build": "bun run build:standalone",
+    "lint": "bunx --bun @biomejs/biome check --apply ."
+  },
+  "author": "tnfAngel",
+  "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "elysia": "^1.0.21",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "@types/bun": "^1.1.3",
+    "typescript": "5.4.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
