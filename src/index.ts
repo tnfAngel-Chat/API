@@ -1,1 +1,3 @@
-console.log('Hello world');
+import { Server } from './classes/Server.ts';
+
+new Server();
