@@ -1,5 +1,6 @@
 import cors from '@elysiajs/cors';
 import { Elysia } from 'elysia';
+import { autoroutes } from 'elysia-autoroutes';
 
 export class Server {
 	public static readonly port = process.env['PORT'] ?? 4000;
@@ -9,7 +10,7 @@ export class Server {
 	public constructor() {
 		this.initCORS();
 		this.initErrorListener();
-		this.initEndpoints();
+		this.initRoutes();
 	}
 
 	private initCORS(): void {
@@ -39,7 +40,14 @@ export class Server {
 		});
 	}
 
-	private initEndpoints(): void {}
+	private initRoutes(): void {
+		this.elysia.use(
+			autoroutes({
+				routesDir: './routes', // -> optional, defaults to './routes'
+				generateTags: false // -> optional, defaults to true
+			})
+		);
+	}
 
 	public listen() {
 		this.elysia.listen(Server.port, ({ port }) => console.info(`Listening on: http://localhost:${port}`));
